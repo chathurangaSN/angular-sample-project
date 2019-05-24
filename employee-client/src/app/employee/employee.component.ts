@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientService } from '../service/http-client.service';
+import { HttpclientService } from '../service/httpclient.service';
+import { Employee } from '../model/employee.model';
 
 @Component({
   selector: 'app-employee',
@@ -8,15 +9,18 @@ import { HttpClientService } from '../service/http-client.service';
 })
 export class EmployeeComponent implements OnInit {
   employees:string[];
-  constructor(private httpClientService:HttpClientService) { }
+  constructor(private httpclientService:HttpclientService) { }
 
   ngOnInit() {
-    this.httpClientService.getEmployees().subscribe(
+    this.httpclientService.getEmployees().subscribe(
       responce => this.handleSuccessfulResponce(responce)
     );
+    console.log("hi");
+    //console.log(employee);
   }
   handleSuccessfulResponce(responce){
     this.employees=responce
+    console.log();
   }
 
 }

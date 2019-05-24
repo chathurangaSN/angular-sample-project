@@ -5,12 +5,10 @@ import { Employee } from '../model/employee.model';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpClientService {
+export class HttpclientService  {
 
   constructor(private httpClient:HttpClient) { }
   getEmployees(){
     return this.httpClient.get<Employee>('http://localhost:8080/api/employee');
   }
 }
-
-
